@@ -1,0 +1,18 @@
+# Node
+pgbtop-server/node_modules/
+pgbtop-server/dist/
+
+# TLS certs
+pgbtop-server/certs/
+
+# Environment
+.env
+.env.local
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
