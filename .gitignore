@@ -13,6 +13,16 @@ pgbtop-server/certs/
 .vscode/
 .idea/
 
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
 # OS
 .DS_Store
 Thumbs.db

@@ -37,9 +37,18 @@ pgbtop/
 │   └── package.json
 │
 ├── client-tui/                 # Python + Textual TUI client
-│   ├── main.py
-│   ├── widgets/
-│   └── requirements.txt
+│   ├── src/
+│   │   ├── main.py             # Entry point — starts Textual app
+│   │   ├── app.py              # Root Textual App class, mounts widgets
+│   │   ├── connection.py       # WebSocket worker — connects, auth, receive loop, reconnect
+│   │   ├── messages.py         # Textual custom messages (ActivityUpdate, LocksUpdate, etc.)
+│   │   └── widgets/
+│   │       ├── activity.py     # Live query table widget
+│   │       ├── locks.py        # Lock monitor widget
+│   │       └── statements.py   # Slow query widget
+│   ├── .venv/                  # .gitignored — virtual environment
+│   ├── .env.example            # Documents PGBTOP_TOKEN, PGBTOP_HOST, PGBTOP_PORT
+│   └── requirements.txt        # textual, websockets
 │
 ├── client-web/                 # React dashboard
 │   ├── src/
