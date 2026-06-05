@@ -1,0 +1,22 @@
+************* Module src/connection.py
+src/connection.py:1:0: F0001: No module named src/connection.py (fatal)
+************* Module main
+src/main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+src/main.py:1:0: E0401: Unable to import 'textual.app' (import-error)
+src/main.py:2:0: E0401: Unable to import 'textual_plot' (import-error)
+src/main.py:4:0: E0401: Unable to import 'websockets' (import-error)
+src/main.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+src/main.py:11:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/main.py:14:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/main.py:15:8: W0612: Unused variable 'plot' (unused-variable)
+src/main.py:18:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/main.py:18:4: R1711: Useless return at end of function or method (useless-return)
+src/main.py:27:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/main.py:34:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/main.py:3:0: C0411: standard import "asyncio" should be placed before third party imports "textual.app.App", "textual_plot.PlotWidget" (wrong-import-order)
+src/main.py:5:0: C0411: standard import "json" should be placed before third party imports "textual.app.App", "textual_plot.PlotWidget", "websockets" (wrong-import-order)
+src/main.py:3:0: W0611: Unused import asyncio (unused-import)
+
+------------------------------------------------------------------
+Your code has been rated at 0.00/10 (previous run: 0.00/10, +0.00)
+
