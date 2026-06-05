@@ -1,5 +1,8 @@
 # pgbtop
 
+![ESLint](https://github.com/Jelly-Fish-Dev/pgbtop/actions/workflows/eslint.yml/badge.svg)
+![Pylint](https://github.com/Jelly-Fish-Dev/pgbtop/actions/workflows/pylint.yml/badge.svg)
+
 A btop-style live terminal and web monitor for PostgreSQL.
 
 ## Overview
