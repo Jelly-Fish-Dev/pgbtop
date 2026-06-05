@@ -7,8 +7,7 @@ A btop-style live terminal and web monitor for PostgreSQL.
 pgbtop streams real-time data from PostgreSQL system tables to connected clients over WebSocket. It is designed to run on the database host and be accessed remotely via SSH tunnel.
 
 ```
-pgbtop-server  ──wss://──►  client-tui   (Python + Textual, terminal UI)
-                       └──►  client-web   (React dashboard)
+pgbtop-server  ──wss://──►  client-tui   (Python + Textual — runs as terminal UI or web app via Textual web)
 ```
 
 ## Components
@@ -16,8 +15,7 @@ pgbtop-server  ──wss://──►  client-tui   (Python + Textual, terminal U
 | Directory | Description |
 |---|---|
 | `pgbtop-server/` | Node.js WebSocket server — polls PostgreSQL and broadcasts JSON to clients |
-| `pgbtop-client/` | Python + Textual TUI client |
-| `client-web/` | React web dashboard |
+| `pgbtop-client/` | Python + Textual client — runs as a terminal UI or served as a web app via `textual serve` |
 
 ## What it monitors
 

@@ -6,7 +6,7 @@ A proposed directory layout for the pgbtop repository.
 
 ## Overview
 
-The repo contains three discrete components — server, TUI client, and web client — plus shared documentation and tooling. Each component lives in its own top-level directory so they can evolve independently and be installed/run without pulling in the others.
+The repo contains two discrete components — server and client — plus shared documentation. The client is a Python + Textual app that runs as a terminal UI or served as a web interface via `textual serve`. Each component lives in its own top-level directory so they can evolve independently.
 
 ---
 
@@ -36,7 +36,7 @@ pgbtop/
 │   ├── tsconfig.json           # TypeScript compiler config
 │   └── package.json
 │
-├── client-tui/                 # Python + Textual TUI client
+├── pgbtop-client/              # Python + Textual client (terminal UI or web via `textual serve`)
 │   ├── src/
 │   │   ├── main.py             # Entry point — starts Textual app
 │   │   ├── app.py              # Root Textual App class, mounts widgets
@@ -49,10 +49,6 @@ pgbtop/
 │   ├── .venv/                  # .gitignored — virtual environment
 │   ├── .env.example            # Documents PGBTOP_TOKEN, PGBTOP_HOST, PGBTOP_PORT
 │   └── requirements.txt        # textual, websockets
-│
-├── client-web/                 # React dashboard
-│   ├── src/
-│   └── package.json
 │
 └── docs/
     ├── architecture.md         # Architecture diagram and narrative
