@@ -8,12 +8,13 @@ This project is in a **planning and design phase**. Claude's role is to help thi
 
 ## Notes
 
-All output from Claude must go into the `notes/` folder as Markdown files. No exceptions.
+All design notes and discussions go into the `notes/` folder as Markdown files.
 
 - One topic per file
 - Use descriptive kebab-case filenames: `websocket-auth-design.md`, `pg-stat-activity-queries.md`
 - Include a short heading at the top of each file describing the topic
-- Do not create files outside `notes/`
+
+Standard project documentation files (e.g. `README.md`, `CONTRIBUTING.md`) may be created at the repository root.
 
 ## Project Context
 
