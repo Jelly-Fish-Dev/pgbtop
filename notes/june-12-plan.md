@@ -6,22 +6,20 @@ Four-day plan to reach a functional v1 by June 12. One medium session per day.
 
 ---
 
-## Day 1 — June 9 ✅ (mostly complete)
+## Day 1 — June 9 ✅
 
 **Done:**
 - `pg` + `@types/pg` installed
 - `src/db.ts` — Pool + `verifyConnection()`
 - `src/config.ts` — all db vars, token, port
-- `package.json` — `build` + `start` scripts
+- `package.json` — `build` + `start` scripts; ESLint config fixed (`dist/` ignored, `eslint.config.mjs`)
 - `src/index.ts` — calls `verifyConnection()` on startup
+- `npm run start` → "Listening on ws://localhost:4242" + "Connected" ✓
 
-**Still to close out:**
+**Carried to Day 2:**
 
-- Fix `.env.example` — still shows `DATABASE_URL` format; must match the individual vars `config.ts` actually reads
+- Fix `.env.example` — still shows `DATABASE_URL` format; update to individual vars
 - Add startup validation to `config.ts` — fail fast if any required var is missing
-- Confirm `verifyConnection()` logs "Connected" against the test database
-
-**Done when:** `npm run start` connects to PostgreSQL and logs "Connected".
 
 ---
 
