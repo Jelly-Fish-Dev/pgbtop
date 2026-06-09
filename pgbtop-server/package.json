@@ -19,6 +19,5 @@
     "lint:fix": "eslint . --fix",
     "build": "tsc",
     "start": "node --env-file=.env dist/index.js"
-  },
-  "type": "module"
+  }
 }
