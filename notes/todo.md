@@ -18,6 +18,12 @@ Outstanding work to get from the current scaffold to a functional v1.
 - [x] `requirements.txt` — all Python deps pinned (textual, websockets, textual-plot, numpy, etc.)
 - [x] `.venv` set up and functional
 - [x] `pgbtop-client/src/main.py` — Textual app skeleton: `PlotWidget` composed, WebSocket worker started on mount, JSON parsed, plot buffer populated and rendered
+- [x] `pgbtop-server/.env` — individual vars: `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE`, `DATABASE_PASS`, `DATABASE_USER`, `PGBTOP_TOKEN`, `PGBTOP_PORT=4242`
+- [x] `src/config.ts` — fully expanded: reads all db vars, `PGBTOP_TOKEN`, `PGBTOP_PORT`; port discrepancy resolved
+- [x] `pg` + `@types/pg` — added to `package.json` dependencies
+- [x] `src/db.ts` — Pool constructed from config, `verifyConnection()` exported
+- [x] `package.json` — `build` (`tsc`) and `start` (`node --env-file=.env dist/index.js`) scripts added
+- [x] `src/index.ts` — calls `verifyConnection()` on startup
 
 ---
 
@@ -25,12 +31,8 @@ Outstanding work to get from the current scaffold to a functional v1.
 
 ### Server — Foundation
 
-- [ ] **Correction needed:** README documents port `4242` but `config.ts` defaults to `8080` — align them
-- [ ] Add `pg` to `dependencies` in `package.json`
-- [ ] Create `src/db.ts` — `pg` client setup, connection lifecycle, and reconnect handling for lost PostgreSQL connections
-- [ ] Expand `src/config.ts` — add `DATABASE_URL`, `PGBTOP_TOKEN`, `PGBTOP_PORT`; validate required vars on startup and fail fast with a clear error message
-- [ ] Add `.env.example` to `pgbtop-server/` documenting `DATABASE_URL`, `PGBTOP_TOKEN`, `PGBTOP_PORT` (README already references this file but it doesn't exist yet)
-- [ ] Add `build` and `start` scripts to `package.json` (`tsc` + `node dist/index.js`)
+- [ ] Fix `.env.example` — still shows `DATABASE_URL` format but `config.ts` reads individual vars; update to match: `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE`, `DATABASE_PASS`, `DATABASE_USER`
+- [ ] Add startup validation to `src/config.ts` — fail fast with a clear error if any required var is missing or empty
 
 ### Server — Queries
 
@@ -64,7 +66,7 @@ Outstanding work to get from the current scaffold to a functional v1.
 - [ ] **Dead code:** `update()` method just calls `print(data)` and is never invoked — remove or wire up properly
 - [ ] Add reconnection logic to the WebSocket worker (retry with backoff on disconnect)
 - [ ] Wire auth token into the `websockets.connect()` call once server auth is in place
-- [ ] Decompose `main.py` into the module structure from `notes/project-structure.md`: `app.py`, `connection.py`, `messages.py`, `widgets/activity.py`, `widgets/locks.py`, `widgets/statements.py`
+- [ ] Decompose `main.py` into the module structure from `notes/project-structure.md`: `app.py`, `connection.py`, `messages.py`, `widgets/activity.py`, `widgets/locks.py`, `widgets/statements.py` — note: `connection.py` was attempted and deleted in commit `b93415d`, consolidating back into `main.py`; revisit once the module boundaries are clearer
 - [ ] Add `.env.example` to `pgbtop-client/` documenting `PGBTOP_TOKEN`, `PGBTOP_HOST`, `PGBTOP_PORT`
 
 ### Shared / Housekeeping
@@ -114,6 +116,6 @@ Fill in the quickstart section, resolve the open config-file question, and close
 
 ---
 
-## Current State (as of 2026-06-09)
+## Current State (as of 2026-06-09, end of day)
 
-The WebSocket plumbing is end-to-end functional: the server starts, broadcasts a JSON message every 2 s, and the Python client connects, parses the payload, and feeds the plot buffer. No PostgreSQL queries exist yet — the data stream is entirely synthetic random values. Port mismatch between README (`4242`) and server default (`8080`).
+Server foundation is complete: `pg` installed, `db.ts` with Pool + `verifyConnection()`, `config.ts` reads all env vars, `index.ts` calls `verifyConnection()` on startup, `build`/`start` scripts in place. No queries written yet — broadcast payload still synthetic. `.env.example` has a format mismatch (shows `DATABASE_URL` but config reads individual vars). Python client unchanged.

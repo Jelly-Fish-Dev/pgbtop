@@ -6,4 +6,7 @@ export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   prettierConfig, // disables ESLint rules that conflict with Prettier
+  {
+    ignores: ['dist/**']
+  }
 );
